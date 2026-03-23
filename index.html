@@ -33,7 +33,7 @@
             "@type": "Organization",
             "name": "AiAgentKarl"
         },
-        "dateModified": "2026-03-20",
+        "dateModified": "2026-03-23",
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "keywords": ["AI pricing", "LLM costs", "token pricing", "GPT-4", "Claude", "Gemini"]
     }
@@ -537,7 +537,7 @@
 
         <div class="stats-bar">
             <div class="stat">
-                <div class="stat-value">20</div>
+                <div class="stat-value">22</div>
                 <div class="stat-label">Models Tracked</div>
             </div>
             <div class="stat">
@@ -545,11 +545,11 @@
                 <div class="stat-label">Providers</div>
             </div>
             <div class="stat">
-                <div class="stat-value" id="cheapest-price">$0.075</div>
+                <div class="stat-value" id="cheapest-price">$0.050</div>
                 <div class="stat-label">Cheapest Input/1M</div>
             </div>
             <div class="stat">
-                <div class="stat-value" id="expensive-price">$75.00</div>
+                <div class="stat-value" id="expensive-price">$40.00</div>
                 <div class="stat-label">Most Expensive Output/1M</div>
             </div>
         </div>
@@ -627,21 +627,23 @@
     </footer>
 
     <script>
-        // Modelldaten
+        // Modelldaten (aktualisiert 2026-03-23)
         const models = [
             { model: "GPT-4o", provider: "OpenAI", input: 2.50, output: 10.00, context: 128000, bestFor: "General", value: 7 },
             { model: "GPT-4o-mini", provider: "OpenAI", input: 0.15, output: 0.60, context: 128000, bestFor: "Simple tasks", value: 9 },
             { model: "GPT-4.1", provider: "OpenAI", input: 2.00, output: 8.00, context: 1000000, bestFor: "Code, long context", value: 8 },
             { model: "GPT-4.1-mini", provider: "OpenAI", input: 0.40, output: 1.60, context: 1000000, bestFor: "Mid-range", value: 8 },
-            { model: "GPT-4.1-nano", provider: "OpenAI", input: 0.10, output: 0.40, context: 1000000, bestFor: "Cheapest OpenAI", value: 8 },
+            { model: "GPT-4.1-nano", provider: "OpenAI", input: 0.05, output: 0.20, context: 1000000, bestFor: "Cheapest OpenAI", value: 9 },
             { model: "o3", provider: "OpenAI", input: 10.00, output: 40.00, context: 200000, bestFor: "Reasoning", value: 5 },
             { model: "o3-mini", provider: "OpenAI", input: 1.10, output: 4.40, context: 200000, bestFor: "Reasoning value", value: 7 },
-            { model: "Claude Opus 4", provider: "Anthropic", input: 15.00, output: 75.00, context: 200000, bestFor: "Most capable", value: 4 },
-            { model: "Claude Sonnet 4", provider: "Anthropic", input: 3.00, output: 15.00, context: 200000, bestFor: "Code, analysis", value: 7 },
-            { model: "Claude 3.5 Haiku", provider: "Anthropic", input: 0.80, output: 4.00, context: 200000, bestFor: "Fast, cheap", value: 8 },
+            { model: "Claude Opus 4.6", provider: "Anthropic", input: 5.00, output: 25.00, context: 1000000, bestFor: "Most capable", value: 7 },
+            { model: "Claude Sonnet 4.6", provider: "Anthropic", input: 3.00, output: 15.00, context: 1000000, bestFor: "Code, analysis", value: 8 },
+            { model: "Claude Haiku 4.5", provider: "Anthropic", input: 1.00, output: 5.00, context: 200000, bestFor: "Fast, cheap", value: 8 },
+            { model: "Gemini 3.1 Pro", provider: "Google", input: 2.00, output: 12.00, context: 200000, bestFor: "Frontier reasoning", value: 7 },
+            { model: "Gemini 3 Flash", provider: "Google", input: 0.50, output: 3.00, context: 200000, bestFor: "Frontier value", value: 9 },
             { model: "Gemini 2.5 Pro", provider: "Google", input: 1.25, output: 10.00, context: 1000000, bestFor: "Long context", value: 8 },
-            { model: "Gemini 2.0 Flash", provider: "Google", input: 0.10, output: 0.40, context: 1000000, bestFor: "Cheapest", value: 9 },
-            { model: "Gemini 2.0 Flash Lite", provider: "Google", input: 0.075, output: 0.30, context: 1000000, bestFor: "Ultra cheap", value: 10 },
+            { model: "Gemini 2.5 Flash", provider: "Google", input: 0.30, output: 2.50, context: 1000000, bestFor: "Fast + cheap", value: 9 },
+            { model: "Gemini 2.5 Flash-Lite", provider: "Google", input: 0.10, output: 0.40, context: 1000000, bestFor: "Ultra cheap", value: 10 },
             { model: "Llama 3.3 70B", provider: "Meta (open)", input: 0.88, output: 0.88, context: 128000, bestFor: "Open source", value: 8 },
             { model: "Llama 3.1 405B", provider: "Meta (open)", input: 3.00, output: 3.00, context: 128000, bestFor: "Best open source", value: 6 },
             { model: "DeepSeek R1", provider: "DeepSeek", input: 0.55, output: 2.19, context: 128000, bestFor: "Reasoning value", value: 9 },
